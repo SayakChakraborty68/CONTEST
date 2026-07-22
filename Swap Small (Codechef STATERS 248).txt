@@ -1,0 +1,59 @@
+Swap Small (Codechef STATERS 248)
+
+link :-  https://www.codechef.com/problems/SWAPSM?tab=statement
+The question tell us that we have an array with elements 0,1,2
+and we can do operations :- 
+             swap a[i]  &  a[i+1]  if a[i] + a[i+1] <=2
+
+Obs :-             a[i]         a[i+1]          SWAP
+                   0              0              yes
+                   0              1              yes 
+                   0              2              yes        
+                   1              0              yes 
+                   2              0              yes 
+                   1              1              yes 
+                   2              1              no 
+                   1              2              no
+                   2              2              no 
+
+So we can swap 0 with any adj number , any number of times...... 1 with 1 only .... 2 cant be swap without 0.......
+
+According to question to get  lexicographically smallest we will swap all zeros and move it to left part of the array 
+and the remaining part of the array will remain same as we don't have swapping options
+
+ex : -   a =  1 ,0 ,2 ,0 ,0 ,1 ,1, 0, 2, 0, 1, 2 
+       lexo = 0, 0, 0, 0, 0 , 1, 2, 1, 1, 2, 1, 2
+as we cant swap 1 and 2.... And there is no point to swap 1 and 1 (this will contribute zero to get  lexicographically smallest)
+
+
+
+###CODE### 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        int cnt = 0 ; 
+        for(int i=0;i<n;i++) {
+            cin >> a[i];
+            if(a[i]==0) cnt++;
+        }
+        for(int i=0;i<cnt;i++) cout << 0 << " " ; 
+        int i = 0;
+        while(i<n){
+            if(a[i]!=0) cout << a[i] << " ";
+            i++;
+        }
+        cout << endl;
+        
+        
+    }
+
+} 
+
