@@ -1,0 +1,15 @@
+Split the string into maximal runs. The two endpoints of an operation contain the same character. Internal adjacencies are only reversed, and the endpoint character on either boundary stays unchanged. Hence the numbers of 0-runs and 1-runs are invariant, as are the character counts.
+
+If the reversal contains the first position, the new first character is the old right endpoint, equal to the old first character. Otherwise it is untouched. Thus the first character is invariant. Since run colors alternate, the run counts and first character determine their entire order.
+
+Conversely, consider (x^a)(y^b)(x^c). A reversal with one endpoint in each x-run can split the total a+c into any two positive lengths while leaving the middle run unchanged. Repeating this between adjacent runs of the same color realizes any positive composition of all 0s,and independently any positive composition of all 1s. These invariants are therefore sufficient.
+
+If character x occurs cnt_x times in seg_x nonempty runs, its run lengths can be chosen in (cnt_x−1)C(seg_x−1)ways(Stars and Bars). The two colors are independent, so the answer is (cnt_0−1)C(seg_0−1)*(cnt_1−1)C(seg_1−1)
+
+An absent character contributes a factor of 1
+We can precompute inverses without binary exponentiation. Let the prime modulus be P .Since every required i<P, its inverse exists. From P=floor(P/i)*i + (P mod i) we obtain i^−1 =− (floor(P/i)*((P mod i)^−1)) (modP)
+
+
+Because P mod i < i, enumerating i in increasing order computes each inverse from an earlier one. Factorials and inverse factorials follow in the same loop.
+
+Each test case takes O(n)time. Preprocessing uses O(N) time and space, where N=106

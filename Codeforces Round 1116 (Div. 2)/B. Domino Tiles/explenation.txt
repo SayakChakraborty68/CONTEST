@@ -1,0 +1,8 @@
+Adjacent dominoes have different weights exactly when s[i]+s[i]+1≠s[i]+1+s[i]+2.
+
+Canceling s[i]+1 gives s[i]≠s[i]+2. Since the alphabet is binary, this is equivalent to s[i]+2=1−s[i]
+
+
+Therefore s[1],s[2] determine the whole string. Enumerate their four assignments and check whether the implied string agrees with every known character. The answer is at most 4, so the modulus does not affect it.
+
+The time complexity is O(n) and the space complexity is O(1)

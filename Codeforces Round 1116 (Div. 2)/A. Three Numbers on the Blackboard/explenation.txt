@@ -1,0 +1,9 @@
+Suppose the current numbers are x≤y≤z.An operation keeps two numbers and replaces the third with their sum. Since all values are nonnegative, the new sum is no smaller than either retained number. Thus the new median is the larger retained number, which is at least the old median y.The median never decreases.
+
+After an operation that retains u≤v,the numbers are u,v,u+v.Their range is exactly v, also their median. Hence every nonempty sequence of operations ends with a range of at least the initial median b
+
+
+With no operation the range is c−a. Replacing c with a+b produces a,b,a+b, whose range is b.
+Therefore the answer is min(c−a,b)
+
+The time and space complexities are both O(1)
