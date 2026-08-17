@@ -1,0 +1,11 @@
+Before processing the queries, let us perform some preprocessing. Find all pairs (a,b) such that a⋅b=S.There are O(√S)such pairs, and they can also be found in O(√S) time with standard algorithms.
+
+These pairs are the top-right corners of all possible Bermuda rectangles. The union of these rectangles forms a staircase-like shape; let us call it F.The answer to a query is the area of the intersection of the query rectangle with F.
+
+Sort the points by x,and for the point with index i, compute the value P[i], equal to the area of F between 0 and this x[i].
+
+This information is enough to answer each query efficiently using binary search. We find the position where the boundary of F crosses the horizontal side of the query rectangle and calculate the answer using the corresponding prefix areas. The exact formulas and case analysis may vary depending on the implementation.
+
+A couple of remarks that may make implementation easier. If there is a point (x,y), then there is also (y,x), and since, knowing one coordinate, it is easy to compute the other. Therefore, it is enough to store just the sorted list of divisors of S and treat them both as x and as y.
+
+Preprocessing complexity: O(√S), time complexity per query: O(logS)

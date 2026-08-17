@@ -1,0 +1,9 @@
+Suppose we have placed some cameras and remove the corresponding edges from the tree. If all the dams are now in different connected components, we can always uniquely determine where the Beaver went. Conversely, if there is a component containing two dams, we cannot distinguish between them.
+
+Since the original graph is a tree, it is necessary and sufficient to remove m−1 edges.
+
+If the root contains a dam, we can take the edges leading directly to all the other dams, obtaining a set of size m−1.
+
+If the root does not contain a dam, we take the same edges but skip one of them. It is important that we cannot skip just any edge: we must choose a dam such that there are no other dams on the path from the root to it. We can take the dam with the smallest depth or vertex number. In this case, we do not even need to run a DFS.
+
+Time complexity: O(n+m).

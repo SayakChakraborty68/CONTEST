@@ -1,0 +1,1 @@
+Note that adding abbreviations to the set S does not create any new possibilities for creating new abbreviations, because a word starting with that letter already exists. Therefore, for each of the 26 letters, we can remember that there is a word that begins with it, and then go through all the abbreviations and check each letter.

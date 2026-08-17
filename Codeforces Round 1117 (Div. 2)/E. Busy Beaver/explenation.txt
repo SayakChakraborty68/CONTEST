@@ -1,0 +1,9 @@
+The first step is to earn as many carrots as possible to maximize our capital. Divide the floors of each building into the shortest consecutive segments whose total profit is non-negative, and calculate the entry threshold of each such segment. The entry threshold is the minimum amount of capital required to construct all floors of the segment in order.
+
+For example, consider two floors with (a1,a2)=(10,0) and (b1,b2)=(0,100)
+Constructing only the first floor is unprofitable, but constructing both floors yields a profit of 90 carrots. However, an initial capital of at least 10 carrots is required.
+
+In an ordered set, we keep the next available segment for each building, sorted by its entry threshold. While the segment with the minimum threshold is affordable, we construct the entire segment, add its profit to our capital, and insert the next segment of the same building into the set. If the segment with the minimum threshold is not affordable, then none of the available segments can be constructed, meaning that we have maximized our capital.
+
+In the second step, we independently try to continue constructing each building from its current height, floor by floor, for as long as the current capital allows. Among all buildings, we choose the maximum resulting height and, in case of a tie, the smallest index.
+Time complexity: O(∑m[i]logn)

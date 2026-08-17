@@ -1,0 +1,8 @@
+On each turn, the height at which the giant stands decreases by exactly 1, except in cases where he changes mountains.
+
+Thus, the first giant will lose after
+         ((a[1] − a[2] ) + 1 ) + ( ( a[2] − a[3]) + 1 ) + ...... + (( a[n]− 1 − a[n]) + 1 ) + a[n] = a[1] + n − 1 moves.
+
+Similarly, the second giant will lose after b[1] + m − 1 moves. All left is only to compare these two numbers.
+
+Time complexity: O(n).
